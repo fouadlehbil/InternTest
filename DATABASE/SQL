@@ -1,0 +1,29 @@
+	
+CREATE TABLE IF NOT EXISTS i_users (
+    userId INT AUTO_INCREMENT,
+    username VARCHAR(25) NOT NULL,
+    emailaddress varchar(50),
+    isActive boolean,
+    password varchar(50),
+    gender varchar(10),
+    PRIMARY KEY (userId)
+)  ;
+	
+CREATE TABLE IF NOT EXISTS i_user_login_logs (
+    userId INT,
+    login_date date,
+    FOREIGN KEY (userId) REFERENCES i_users(userId)
+)  ;
+
+SELECT userId
+FROM i_user_login_logs
+GROUP BY userId
+HAVING count(*) >= 3;
+
+
+SELECT MAX(counted) FROM
+(
+    SELECT COUNT(*) AS counted
+    FROM i_user_login_logs
+    GROUP BY userId
+) AS counts;
