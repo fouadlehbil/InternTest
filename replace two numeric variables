@@ -1,0 +1,32 @@
+using System;
+namespace SWAP 
+{
+  class swapNumbers
+  {
+    public static void Main(string[]args)
+    {
+      string userInputFirstNumber, userInputSecondNumber;
+      int firstNumber, secondNumber;
+      Console.Write("Please give a number as 1st variable: ");
+			userInputFirstNumber = Console.ReadLine();
+      Console.Write("Please give a number as 2nd variable: ");
+      userInputSecondNumber = Console.ReadLine();
+      firstNumber = Convert.ToInt32(userInputFirstNumber);
+      secondNumber = Convert.ToInt32(userInputSecondNumber);
+      if(secondNumber != 0){
+        firstNumber = firstNumber + secondNumber;
+        secondNumber = firstNumber - secondNumber;
+        firstNumber = firstNumber - secondNumber;
+        }
+      else
+        {
+          secondNumber = firstNumber;
+          firstNumber = 0;
+        }
+     Console.WriteLine("The value of the 1st variable : "+firstNumber);
+     Console.WriteLine("The value of the 2nd variable : "+secondNumber);
+     
+  
+  }
+  }
+}
